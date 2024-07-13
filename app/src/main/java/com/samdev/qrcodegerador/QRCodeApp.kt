@@ -71,6 +71,15 @@ fun QRCodeApp() {
                     modifier = Modifier.size(220.dp)
                 )
             }
+            Button(
+                onClick = { /* Implement QR Code copy functionality */ },
+                enabled = qrCodeGenerated!= null, // Enable only if QR Code is generated
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 16.dp) // Add some padding above the button
+            ) {
+                Text("Copiar QR Code")
+            }
         }
 
         Column {
@@ -155,7 +164,7 @@ fun RoundedButton(
             modifier = Modifier.padding(vertical = 6.dp),
             color = Color.Black,
         )
-        
+
     }
 }
 
@@ -165,8 +174,7 @@ fun QRCodeAppPreview() {
     QRCodeGeradorTheme (dynamicColor = false){
         Surface(
             modifier = Modifier.fillMaxSize(),
-            color = MaterialTheme.colorScheme.background
-        )
+            color = Color.White)
         {
             QRCodeApp()
         }
