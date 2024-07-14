@@ -53,7 +53,6 @@ fun QRCodeApp() {
         modifier = Modifier.padding(horizontal = 20.dp),
         verticalArrangement = Arrangement.SpaceEvenly,
     ){
-
         Column (horizontalAlignment = Alignment.CenterHorizontally) {
             Text(
                 text = "Gerador de QR Code",
@@ -81,7 +80,6 @@ fun QRCodeApp() {
                 Text("Copiar QR Code")
             }
         }
-
         Column {
             TextField(
                 value = textValue,
@@ -108,7 +106,6 @@ fun QRCodeApp() {
                 })
 
             Spacer(Modifier.height(20.dp))
-
             RoundedButton(
                 onClick = {
                     qrCodeGenerated = generateQrCode (textValue.text)
@@ -128,7 +125,6 @@ fun generateQrCode(text: String) : Bitmap {
 
 
     val bitmap = Bitmap.createBitmap(w, h, Bitmap.Config.RGB_565)
-
     for (y in 0 until h) {
         for (x in 0 until w){
             bitmap.setPixel(x, y, if (matrix.get(x, y))
@@ -138,9 +134,9 @@ fun generateQrCode(text: String) : Bitmap {
             )
         }
     }
-
     return bitmap
 }
+
 
 @Composable
 fun RoundedButton(
